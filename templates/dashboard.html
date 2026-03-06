@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Patient Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<button onclick="goBack()" class="backbtn">⬅ Back</button>
+
+<h1>Welcome {{name}}</h1>
+
+<br>
+
+<a href="/book" class="btn">Book Appointment</a>
+<a href="/upload_report" class="btn">Upload Medical Report</a>
+<a href="/view_reports" class="btn">View My Reports</a>
+
+<br><br>
+
+<h2>My Appointments</h2>
+
+<table border="1" style="margin:auto;background:white;color:black;">
+
+<tr>
+<th>Doctor</th>
+<th>Date</th>
+<th>Problem</th>
+<th>Diagnosis</th>
+</tr>
+
+{% for d in data %}
+
+<tr>
+<td>{{ d.doctor }}</td>
+<td>{{ d.date }}</td>
+<td>{{ d.problem }}</td>
+<td>{{ d.diagnosis }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/logout" class="btn2">Logout</a>
+
+<script>
+function goBack(){
+window.history.back();
+}
+</script>
+
+</body>
+
+</html>

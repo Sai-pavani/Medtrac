@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Doctor Dashboard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<button onclick="goBack()" class="backbtn">⬅ Back</button>
+
+<h1>Welcome Dr. {{ doctor }}</h1>
+
+<br>
+
+<a href="/doctor_view_reports" class="btn">View Patient Reports</a>
+
+<br><br>
+
+<h2>Patient Appointments</h2>
+
+<table border="1" style="margin:auto; background:white; color:black; padding:10px;">
+
+<tr>
+<th>Patient</th>
+<th>Date</th>
+<th>Problem</th>
+<th>Diagnosis</th>
+<th>Update Diagnosis</th>
+</tr>
+
+{% for d in data %}
+
+<tr>
+
+<td>{{ d.patient }}</td>
+<td>{{ d.date }}</td>
+<td>{{ d.problem }}</td>
+<td>{{ d.diagnosis }}</td>
+
+<td>
+
+{% if d.diagnosis == "Pending" %}
+
+<form action="/update_diagnosis" method="POST">
+
+<input type="hidden" name="patient" value="{{ d.patient }}">
+
+<input type="text" name="diagnosis" placeholder="Enter diagnosis" required>
+
+<button type="submit">Update</button>
+
+</form>
+
+{% else %}
+
+Completed
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/logout" class="btn2">Logout</a>
+
+<script>
+
+function goBack(){
+window.history.back();
+}
+
+</script>
+
+</body>
+
+</html>

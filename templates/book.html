@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Book Appointment</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<button onclick="goBack()" class="backbtn">⬅ Back</button>
+
+<div class="container">
+
+<h2>Book Appointment</h2>
+
+<form method="POST">
+
+<select name="doctor">
+
+<option>Dr.Asha</option>
+<option>Dr.Ravi</option>
+<option>Dr.Meena</option>
+
+</select>
+
+<input type="date" name="date" required>
+
+<textarea name="problem" placeholder="Describe your problem"></textarea>
+
+<button type="submit" class="btn">Book</button>
+
+</form>
+
+</div>
+
+<script>
+function goBack(){
+window.history.back();
+}
+</script>
+
+</body>
+</html>

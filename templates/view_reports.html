@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>My Reports</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<button onclick="goBack()" class="backbtn">⬅ Back</button>
+
+<div class="container">
+
+<h2>My Medical Reports</h2>
+
+{% for r in reports %}
+
+<p>{{r.file}} - {{r.date}}</p>
+
+{% endfor %}
+
+</div>
+
+<script>
+function goBack(){
+window.history.back();
+}
+</script>
+
+</body>
+</html>

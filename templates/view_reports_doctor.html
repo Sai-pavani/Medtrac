@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Patient Reports</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<button onclick="goBack()" class="backbtn">⬅ Back</button>
+
+<h2>All Patient Reports</h2>
+
+<table border="1" style="margin:auto;background:white;color:black">
+
+<tr>
+<th>Patient Email</th>
+<th>Report File</th>
+<th>Date</th>
+</tr>
+
+{% for r in reports %}
+
+<tr>
+
+<td>{{r.email}}</td>
+
+<td>
+<a href="/uploads/{{r.file}}" target="_blank">
+{{r.file}}
+</a>
+</td>
+
+<td>{{r.date}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<script>
+function goBack(){
+window.history.back();
+}
+</script>
+
+</body>
+</html>

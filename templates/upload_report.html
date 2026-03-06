@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Upload Report</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<button onclick="goBack()" class="backbtn">⬅ Back</button>
+
+<div class="container">
+
+<h2>Upload Medical Report</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="report" required>
+
+<button type="submit" class="btn">Upload</button>
+
+</form>
+
+</div>
+
+<script>
+function goBack(){
+window.history.back();
+}
+</script>
+
+</body>
+</html>
